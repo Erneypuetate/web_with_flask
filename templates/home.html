@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de usuario</title>
+</head>
+<body>
+    <h1>Perfil de {{ user.name }}</h1>
+    <p>Nombre de usuario: {{ user.name }}</p>
+    <p>Email: {{ user.email }}</p>
+    <!-- Aquí puedes agregar más campos del perfil del usuario -->
+    <a class="btn btn-secondary" href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>
