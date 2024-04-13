@@ -1,6 +1,17 @@
 version: '3.8'
 
 services:
+  flask_app:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app  # Montar el directorio actual en el contenedor para facilitar el desarrollo
+    depends_on:
+      - mysql
+    networks:
+      - mynetwork
+
   mysql:
     image: mysql:latest
     restart: always
@@ -13,3 +24,9 @@ services:
       - "3306:3306"
     volumes:
       - ./data_mysql:/var/lib/mysql
+    networks:
+      - mynetwork
+
+  networks:
+    mynetwork:
+      driver: bridge
