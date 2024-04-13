@@ -5,7 +5,7 @@ from models.user import User
 config = {
   'user': 'example_user',
   'password': 'example_password',
-  'host': 'localhost',
+  'host': 'mysql',
   'database': 'erney',
 }
 print(config)
