@@ -1,7 +1,19 @@
 # Usar la imagen base oficial de Python
 FROM python:3.9-slim
 
-RUN pip install --upgrade pip
+RUN apt-get update \
+    && apt-get install -y pkg-config \
+                           libmariadb-dev-compat \
+                           build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        libmariadb-dev-compat \
+        build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN pip install mysqlclient
 
 # Establecer el directorio de trabajo en /app
 WORKDIR /app
