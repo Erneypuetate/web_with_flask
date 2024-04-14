@@ -7,13 +7,11 @@ RUN apt-get update \
                            build-essential \
     && rm -rf /var/lib/apt/lists/*
 
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-        libmariadb-dev-compat \
-        build-essential \
-    && rm -rf /var/lib/apt/lists/*
-
-RUN pip install mysqlclient
+#RUN apt-get update \
+ #   && apt-get install -y --no-install-recommends \
+  #      libmariadb-dev-compat \
+   #     build-essential \
+    #&& rm -rf /var/lib/apt/lists/*
 
 # Establecer el directorio de trabajo en /app
 WORKDIR /app
